@@ -76,23 +76,24 @@
 
 				<hr />
 				<div>
+					<span class="image right"><img src="images/LED_diagram.png" alt="" /></span>
 					<h2>LED</h2>
 
-					<!-- <span class="image left"><img src="images/LED_inserted.jpg" alt="" /></span> -->
+
 					<!-- <span class="image left"><img src="images/pic05.jpg" alt="" /> -->
 
 					<p>LEDs are small and powerfull lights.</p>
 					<p>LEDs have two <b>legs</b>: <b>short</b> (negative side) and <b>long</b> (positive side). They have to be connected in the right direction on the breadboard.</p>
 
 					<!-- <span class="image right"><img src="images/LED_and_resistor_in_breadboard.jpg" alt="" /></span>
-					<span class="image main"><img src="images/Resistor_straight.jpg" alt="" /></span>
-					<span class="image right"><img src="images/Resistor_bent.jpg" alt="" /></span>
 					<span class="image left"><img src="images/Ground_connected.jpg" alt="" /></span>
 					<span class="image right"><img src="images/Full_curcuit.jpg" alt="" /></span> -->
 				</div>
 
 				<hr />
 				<div>
+					<span class="image fit"><img src="images/Resistor_straight.jpg" alt="" /></span>
+					<span class="image right"><img src="images/Resistor_bent.jpg" alt="" /></span>
 					<h2>Resistor</h2>
 					<p>An LED can only accept a range of voltages, and supplying it with a higher voltage than allowed will cause it to burn out. This is why we need to use a resistor that limits the current output. </p>
 					<p>Resistors need their legs bent in right angles to fit in the breadboard. One can also cut the legs shorter. </p>
@@ -101,12 +102,14 @@
 
 				<hr />
 				<div>
+					<span class="image"><img src="images/jumper_wires.jpg" alt="" /></span>
 					<h2>Jumper Wire</h2>
 					<p>Jumper wires are used to connect components on the breadboard and to connect them to Arduino. </p>
 				</div>
 
 				<hr />
 				<div>
+					<span class="image right"><img src="images/UNO.jpg" alt="" /></span>
 					<h2>Arduino</h2>
 					<p>Arduino is a platform, which allows to control electronic components through a microcontroller. The board can be connected and programmed a USB connection on a computer.</p>
 				</div>
@@ -119,27 +122,50 @@
 				<div>
 					<h2>Step 1</h2>
 					<p>Connect the LED to the breadboard. The two legs should be in different columns. Note where you insert the longer and shorter legs.</p>
+					<div><span class="image"><img src="images/LED_inserted.jpg" alt="" width="20%" /></span></div>
 				</div>
 
 				<hr />
 				<div>
 					<h2>Step 2</h2>
-					<p>Connect the ground (GND) power pin of the arduino to the negative row a few columns down from the LED’s negative leg (short leg) using a jumpwire.</p>
+					<div><span class="image"><img src="images/LED_and_resistor_in_breadboard.jpg" alt="" width="20%" /></span></div>
+					<p>Insert one leg of the resistor in the same row as the short (negative) leg of the LED.</p>
+					<p>Insert the other leg of the resistor into a free column.</p>
 				</div>
 
 				<hr />
 				<div>
+					<div><span class="image"><img src="images/Ground_connected.jpg" alt="" width="20%" /></span></div>
 					<h2>Step 3</h2>
-					<p>Now use a resistor to connect the columns with the power and the LED’s negative leg. Finally, connect the arduino’s digital pin 13 to the same column as the LED’s positive leg (long leg). The number of the pin we connect it to is important as we
-						will have to set it as a power output in our program.</p>
+					<p>Connect the ground (GND) power pin of the Arduino to the column with the only resistor leg using a jumpwire.</p>
 				</div>
+
+				<hr />
+				<div>
+					<div><span class="image"><img src="images/Full_curcuit.jpg" alt="" width="30%" /></span></div>
+					<h2>Step 4</h2>
+					<p>Connect the arduino’s digital <b>pin 13</b> to the same column as the LED’s positive leg (long leg).</p>
+					<p>The number of the pin we connect it to is important as we will have to set it as a power output in our program.</p>
+				</div>
+
+
+				<hr />
+				<div>
+					<div><span class="image"><img src="images/Connect_usb.jpg" alt="" width="30%" /></span></div>
+					<h2>Step 5</h2>
+					<p>Connect one side of the USB cable to the Arduino and the other one to your computer.</p>
+				</div>
+
 
 			</section>
 
 			<section id="code" class="main">
 				<h1>Code</h1>
 
-				<p>In this section, you will learn how to write your first program using the Arduino programming environment. You will learn how to control the LED’s and make them blink.</p>
+				<p>Now, we will learn how to control the LED’s and make them blink.</p>
+
+
+
 				<p>Firstly, let us go through some basics of Arduino programming. When you want to write a new program, you have to start a new sketch. The first thing you will see are the two main loops that you will need for every program:</p>
 
 				<!-- <span class="image right"><img src="images/Arduino_IDE_LED_sketch.png" alt="" /></span>
