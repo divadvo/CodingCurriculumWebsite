@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Servo Lesson</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/prism/prism.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<span class="logo"><a href="index.html" id = "title_link" ><img src="images/logo.svg"/></a></span>
+			<h1>Servo-motor Lesson</h1>
+			<p>How to sweep an angle with the servo motor</p>
+		</header>
+
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">Introduction</a></li>
+				<li><a href="#components">Components</a></li>
+				<li><a href="#steps">Step-by-step</a></li>
+				<li><a href="#code">Code</a></li>
+				<!-- <li><a href="#cta">List of lessons</a></li> -->
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Content -->
+			<section id="intro" class="main">
+				<span class="image main"><img src="images/LED_top_image.jpg" alt="" /></span>
+
+				<h1>Introduction</h1>
+
+				<p>
+					In this tutorial, we will be showing you how to control the servo motor with the arduino. By the end of this tutorial you will be able to set up the servo motor so that it sweeps a set angle.
+				</p>
+
+				<hr />
+				<h2>Components you need</h2>
+				<ul>
+					<li>Arduino UNO or similar</li>
+					<li>Breadboard</li>
+					<li>Jumper Wires</li>
+					<li>Servo motor</li>
+				</ul>
+			</section>
+
+			<section id="components" class="main">
+				<div>
+					<h1>New Components</h1>
+					<h2>The servo motor</h2>
+					<span class="image fit"></span>
+					<p>
+						The servo motor is a small motor that rotates a set angle.
+					</p>
+					<p>
+						The servo motor has 3 connections as shown in the diagram below:
+					</p>
+					<div>
+						<span class="image"><img src = "images/servo_diagram.png" width="50%" /></span>
+					</div>
+					<p>
+						The yellow wire connects to the digital pin and is used by the board to set certain angles for the servo motor.</br> The black and red wires are used to power up the motor and connect to GND and to 5V respectively.
+					</p>
+				</div>
+			</section>
+
+			<section id="steps" class="main">
+				<h1>Connecting step-by-step</h1>
+
+				<div>
+					<h2>Step 1</h2>
+					<p>
+						Firstly, connect the yellow wire to one of the main rows of the breadboard. Connect another pin of the same row to pin 12 on the arduino using a jumpwire. The number of the pin is again important as this is what we will use when configuring our program for the arduino.
+					</p>
+				</div>
+
+				<hr />
+				<div>
+					<h2>Step 2</h2>
+					<p>
+						Next, connect the black wire to the negative power rail on the same side of the breadboard and the red wire to the positive power rail.
+					</p>
+				</div>
+
+				<hr />
+				<div>
+					<h2>Step 3</h2>
+					<p>
+						Now all we need to do is connect the arduino’s GND and 5V pins to the board using jumpwires. They should also be on the same side as the red and black wires from the servo so that power can flow from the arduino to the servo.
+					</p>
+					<p>
+						The final circuit should look similar to the diagram below:
+					</p>
+				</div>
+				<div>
+					<span class="image"><img src = "images/servo_circuit.png" width="50%" /></span>
+				</div>
+
+
+			</section>
+
+			<section id="code" class="main">
+				<h1>Code</h1>
+
+				<p>
+					In this section, you will learn how to write the code for controlling the servo motor. You will be able to set an angle for the rotation of the servo motor. <br> As we did in the previous tutorial, we have put the code below so you can read it once and then will run you through it.
+				</p>
+				<pre class="language-clike line-numbers" data-src="LED.ino"></pre>
+				<!-- <pre class="language-processing line-numbers" data-src="ProcessingRadar.pde"></pre> -->
+				<div style="text-align: right">
+					<a href="#" class="button special icon chevron-right">Next Lesson</a>
+				</div>
+			</section>
+
+			<!-- <section id="code" class="main">
+			</section> -->
+
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<h2>About</h2>
+				<p>Created by Nadim and David</p>
+				<ul class="actions">
+					<li><a href="about.html" class="button">Learn More</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Contact us</h2>
+				<dl class="alt">
+					<dt>Email</dt>
+					<dd><a href="#">nadim.gomez.16@ucl.ac.uk</a></dd>
+					<dd><a href="#">david.stepanovs.16@ucl.ac.uk</a></dd>
+				</dl>
+				<ul class="icons">
+					<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+				</ul>
+			</section>
+			<p class="copyright">&copy; N&amp;D. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<script src="assets/prism/prism.js"></script>
+
+</body>
+
+</html>
