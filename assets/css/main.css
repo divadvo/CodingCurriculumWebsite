@@ -3799,3 +3799,10 @@
 			}
 
 		}
+
+
+		.chevron-right:after {
+    content: '\f054';
+    font-family: 'FontAwesome';
+    padding-left: 5px;
+}

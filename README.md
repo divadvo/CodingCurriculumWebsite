@@ -1,1 +1,1 @@
-"# CodingCurriculumWebsite" 
+# CodingCurriculumWebsite
