@@ -1688,6 +1688,9 @@
 		border-bottom: dotted 1px;
 		color: inherit;
 	}
+	#title_link{
+		border-bottom: none;
+	}
 
 		a:hover {
 			border-bottom-color: transparent;
