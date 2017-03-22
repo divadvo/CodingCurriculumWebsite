@@ -1,12 +1,12 @@
-#include <Servo.h> //Imports the code needed to use the servo
+#include <Servo.h>
 
-#define SERVO_PIN 9 //Sets a variable for the servo pin
+#define SERVO_PIN 12
 
-Servo servo; //Initialises the servo 
-int angle = 0; //Sets the starting angle to 0
+Servo servo;
+int angle = 0;
 
 void setup() {
-  servo.attach(SERVO_PIN); //links pin number 9 to the inistialised servo  
+  servo.attach(SERVO_PIN);
 }
 
 void loop() {
@@ -14,10 +14,10 @@ void loop() {
     servo.write(angle);
     delay(15);
   }
-  
+
   for(angle = 180; angle >= 0; angle--) {
     servo.write(angle);
     delay(15);
   }
-  
+
 }

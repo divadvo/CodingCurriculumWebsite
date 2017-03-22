@@ -44,13 +44,11 @@
 
 			<!-- Content -->
 			<section id="intro" class="main">
-				<span class="image main"><img src="images/Servo_top_image.jpg" alt="" /></span>
+				<span class="image main"><img src="images/Ultrasonic_top_image.jpg" alt="" /></span>
 
 				<h1>Introduction</h1>
 
-				<p>
-					In this tutorial, we will be showing you how to control the servo motor with the Arduino. By the end of this tutorial you will be able to set up the servo motor so that it sweeps across 180 degrees.
-				</p>
+				<p>In this tutorial, we will be showing you how to use the ultrasonic sensor with the Arduino. </p>
 
 				<hr />
 				<h2>Components you need</h2>
@@ -58,27 +56,19 @@
 					<li>Arduino UNO or similar</li>
 					<li>Breadboard</li>
 					<li>Jumper Wires</li>
-					<li>Servo motor</li>
+					<li>HC-SR04: Ultrasonic sensor</li>
 				</ul>
 			</section>
 
 			<section id="components" class="main">
 				<div>
 					<h1>New Components</h1>
-					<h2>The servo motor</h2>
-					<span class="image fit"></span>
-					<p>
-						The servo motor is a small motor that rotates a set angle.
-					</p>
-					<p>
-						The servo motor has 3 connections as shown in the diagram below:
-					</p>
-					<div>
-						<span class="image"><img src = "images/servo_diagram.png" width="50%" /></span>
-					</div>
-					<p>
-						The yellow wire connects to the digital pin and is used by the board to set certain angles for the servo motor.</br> The black and red wires are used to power up the motor and connect to GND and to 5V respectively.
-					</p>
+					<h2>Ultrasonic sensor</h2>
+					<p>The ultrasonic sensor has 4 connection pins as shown in the figure below:</p>
+					<div class="6u"><span class="image fit"><img src="images/hc-sr04_pin_diagram.jpg" alt="" /></span></div>
+					<p>As with all electronic components that need to be powered up, the ultrasonic sensor has both ther GND and 5V pins, that will connect to the corresponding power pins on the Arduino.</p>
+					<p>The <b>TRIG</b> pin is used for input. We will use it to activate the sensor so that it sends out an ultrasonic wave.</p>
+					<p>The <b>ECHO</b> pin is used for output. We will use it to receive the time travelled by the wave from which we can deduce the distance through simple calculations.</p>
 				</div>
 			</section>
 
@@ -87,33 +77,43 @@
 
 				<div>
 					<h2>Step 1</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_yellow.jpg" alt="" /></span></div>
-					<p>Firstly, connect the yellow wire to one of the columns of the breadboard. </p>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_connect_power.jpg" alt="" /></span></div>
+					<p>First, connect GND to the negative power row (blue) of the breadboard and 5V to the positive power row (red).</p>
 				</div>
 
 
 				<hr />
 				<div>
 					<h2>Step 2</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_to_pin.jpg" alt="" /></span></div>
-					<p>Connect another pin of the same row to pin 12 on the Arduino using a jumpwire. The number of the pin is again important as this is what we will use when configuring our program.</p>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_connect_to_power.jpg" alt="" /></span></div>
+					<p>Next, connect the negative power row of the breadboard to a column and the positive power row to another column, leaving 2 columns in between.</p>
+					<p></p>
 				</div>
 
 				<hr />
 				<div>
 					<h2>Step 3</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_power.jpg" alt="" /></span></div>
-					<p>Next, connect GND to the negative power row (blue) of the breadboard and 5V to the positive power row (red).</p>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_connect_trig.jpg" alt="" /></span></div>
+					<p>Now connect the TRIG pin to pin number <code class="language-clike">10</code> on the Arduino.</p>
+					<p></p>
 				</div>
-
-
 
 				<hr />
 				<div>
 					<h2>Step 4</h2>
-					<p>Next, connect the black wire to the negative power row of the breadboard and the red wire to the positive power row.</p>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_connect_echo.jpg" alt="" /></span></div>
+					<p>Connect the ECHO pin to pin number <code class="language-clike">11</code> on the Arduino.</p>
+					<p></p>
+				</div>
+
+
+				<hr />
+				<div>
+					<h2>Step 5</h2>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_insert_sensor.jpg" alt="" /></span></div>
+					<p>Insert the sensor so that the pins on the sensor are in the right columns.</p>
 					<p>The final circuit should look similar to the diagram below:</p>
-					<div class="6u"><span class="image fit"><img src="images/servo_circuit.png"/></span></div>
+					<div class="6u"><span class="image fit"><img src="images/Ultrasonic_circuit.jpg"/></span></div>
 				</div>
 
 
@@ -130,45 +130,54 @@
 
 				<hr />
 				<h2>Turning servo</h2>
-				<pre class="language-clike line-numbers" data-src="Servo/Servo.ino"></pre>
+				<pre class="language-clike line-numbers" data-src="Ultrasonic.ino"></pre>
 				<!-- <pre class="language-processing line-numbers" data-src="ProcessingRadar.pde"></pre> -->
 
 				<hr />
 				<h2>Code explanation</h2>
 
-				<h3>Set the servo pin</h3>
-				<p>
-					At the beginning of our code, we set the global variables and initial parameters. This is where we include the library for the servo. A library is a collection of pre-written code that you can reuse. The <code class="language-clike">#define</code>					allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">9</code> as <code class="language-clike">SERVO_PIN</code>.
-				</p>
+				<h3>Add NewPing library</h3>
+				<code class="language-clike">#include &lt;NewPing.h></code>
+				<p>Imports the code needed to use the ultrasonic sensor</p>
+				<p>This pre-written code can help us to use the sensor. </p>
 
-				<h3>Move servo one way</h3>
+
+				<h3>Set the sensor settings</h3>
 				<code class="language-clike" style=display:block;white-space:pre-wrap>
-  for(angle = 0; angle <= 180; angle++){
-  	servo.write(angle);
-  	delay(15);
-  }
+#define TRIGGER_PIN  10
+#define ECHO_PIN     11
+#define MAX_DISTANCE 200
 					</code>
-
-					<p>The first for loop iterates over an angle from <code class="language-clike">0</code> to <code class="language-clike">180</code>, increasing with a step of <code class="language-clike">1</code>.</p>
-					<p>At every value of angle, we send the angle to the servo so it rotates.</p>
-					<p>The delay of <code class="language-clike">15</code> microseconds is used to give enough time to the servo so that it can rotate.</p>
+				<p>Define the pins we connected to the sensors.</p>
 
 
-				<h3>Move servo back</h3>
-				<p>The second for loop acts the same way as the first but goes from <code class="language-clike">180</code> to <code class="language-clike">0</code> degrees, resetting the servo to its initial position. </p>
-				<p>Both these loops run indefinitely as they are in the Arduino's <code class="language-clike">loop()</code> function.</p>
-				<p>You now have a program that makes the servo motor sweep an angle of 180 degrees. All you have left to do is upload it to your Arduino board and watch it go!</p>
+				<h3>Initialize object</h3>
+				<code class="language-clike">NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);</code>
+				<p>Initialises the ultrasonic sensor object object with the pins and maximum distance as parameters.</p>
+				<p>If the object is farther away (in cm) than <code class="language-clike">MAX_DISTANCE</code> the sensor will not detect it.</p>
+
+				<h3>Create distance variable</h3>
+				<code class="language-clike">int distanceCM = 0;</code>
+				<p>Sets the distance to a default value of <code class="language-clike">0</code>.</p>
+
+
+				<h3>Delay</h3>
+				<code class="language-clike">delay(50);</code>
+				<p>The distance will be measured every <code class="language-clike">50</code> milliseconds (20 times per second).</p>
+
+				<h3>Measure distance</h3>
+				<code class="language-clike">distanceCM = sonar.ping_cm();</code>
+				<p>The library makes the distance measurement very easy. The result is saved as integer in the variable <code class="language-clike">distanceCM</code> and can be used.</p>
 
 				<hr />
 				<h2>Exercise</h2>
-				<p>
-					As an exercise, try and change the range of angles and see what happens.
-				</p>
+				<p>As an exercise, also store the distance in inches in a seperate variable. <code>1 inch = 2.54 cm</code></p>
+				<p>Is there an easier way to do this (existing function)? Find out by reading the <a href="http://playground.arduino.cc/Code/NewPing">documentation for the NewPing library</a>.</p>
 
 				<hr />
 				<h2>Challenge</h2>
 				<p>
-					For those of you that want more of a challenge, try blinking an LED every time a full cycle completes. This will require you to link 2 circuits together. Hint: read the previous lesson about LEDs.
+					For those of you that want more of a challenge, try blinking an LED every time an object is detected (within the maximum distance).
 				</p>
 				<div style="text-align: right">
 					<a href="/Serial" class="button special icon chevron-right">Next Lesson</a>

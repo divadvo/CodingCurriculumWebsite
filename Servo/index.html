@@ -113,7 +113,7 @@
 					<h2>Step 4</h2>
 					<p>Next, connect the black wire to the negative power row of the breadboard and the red wire to the positive power row.</p>
 					<p>The final circuit should look similar to the diagram below:</p>
-					<div class="6u"><span class="image fit"><img src="images/servo_circuit.png"/></span></div>
+					<div class="6u"><span class="image fit"><img src="images/Servo_circuit.jpg"/></span></div>
 				</div>
 
 
@@ -136,10 +136,28 @@
 				<hr />
 				<h2>Code explanation</h2>
 
+				<h3>Add servo library</h3>
+				<code class="language-clike">#include &lt;Servo.h></code>
+				<p>Imports the code needed to use the servo</p>
+				<p>At the beginning of our code, we set the global variables and initial parameters. This is where we include the library for the servo. A library is a collection of pre-written code that you can reuse. </p>
+
 				<h3>Set the servo pin</h3>
+				<code class="language-clike">#define SERVO_PIN 12</code>
 				<p>
-					At the beginning of our code, we set the global variables and initial parameters. This is where we include the library for the servo. A library is a collection of pre-written code that you can reuse. The <code class="language-clike">#define</code>					allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">9</code> as <code class="language-clike">SERVO_PIN</code>.
+					The <code class="language-clike">#define</code>	allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">12</code> as <code class="language-clike">SERVO_PIN</code>.
 				</p>
+
+				<h3>Initialize servo</h3>
+				<code class="language-clike">Servo servo;</code>
+				<p>Initialises the servo object</p>
+
+				<h3>Create angle variable</h3>
+				<code class="language-clike">int angle = 0;</code>
+				<p>Sets the starting angle to <code class="language-clike">0</code></p>
+
+				<h3>Attach servo object to a pin</h3>
+				<code class="language-clike">servo.attach(SERVO_PIN);</code>
+				<p>Links pin number <code class="language-clike">12</code> to the inistialised servo.</p>
 
 				<h3>Move servo one way</h3>
 				<code class="language-clike" style=display:block;white-space:pre-wrap>
