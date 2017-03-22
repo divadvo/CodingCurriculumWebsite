@@ -25,8 +25,8 @@
 		<!-- Header -->
 		<header id="header">
 			<span class="logo"><a href="index.html" id = "title_link" ><img src="images/logo.svg"/></a></span>
-			<h1>Servo-motor Lesson</h1>
-			<p>How to sweep an angle with the servo motor</p>
+			<h1>Servo Lesson</h1>
+			<p>How to sweep a servo motor</p>
 		</header>
 
 		<nav id="nav">
@@ -44,12 +44,12 @@
 
 			<!-- Content -->
 			<section id="intro" class="main">
-				<span class="image main"><img src="images/LED_top_image.jpg" alt="" /></span>
+				<span class="image main"><img src="images/Servo_top_image.jpg" alt="" /></span>
 
 				<h1>Introduction</h1>
 
 				<p>
-					In this tutorial, we will be showing you how to control the servo motor with the arduino. By the end of this tutorial you will be able to set up the servo motor so that it sweeps a set angle.
+					In this tutorial, we will be showing you how to control the servo motor with the Arduino. By the end of this tutorial you will be able to set up the servo motor so that it sweeps across 180 degrees.
 				</p>
 
 				<hr />
@@ -87,31 +87,33 @@
 
 				<div>
 					<h2>Step 1</h2>
-					<p>
-						Firstly, connect the yellow wire to one of the main rows of the breadboard. Connect another pin of the same row to pin 12 on the arduino using a jumpwire. The number of the pin is again important as this is what we will use when configuring our program for the arduino.
-					</p>
+					<div class="6u"><span class="image fit"><img src="images/Servo_connect_yellow.jpg" alt="" /></span></div>
+					<p>Firstly, connect the yellow wire to one of the columns of the breadboard. </p>
 				</div>
+
 
 				<hr />
 				<div>
 					<h2>Step 2</h2>
-					<p>
-						Next, connect the black wire to the negative power rail on the same side of the breadboard and the red wire to the positive power rail.
-					</p>
+					<div class="6u"><span class="image fit"><img src="images/Servo_connect_to_pin.jpg" alt="" /></span></div>
+					<p>Connect another pin of the same row to pin 12 on the Arduino using a jumpwire. The number of the pin is again important as this is what we will use when configuring our program.</p>
 				</div>
 
 				<hr />
 				<div>
 					<h2>Step 3</h2>
-					<p>
-						Now all we need to do is connect the arduino’s GND and 5V pins to the board using jumpwires. They should also be on the same side as the red and black wires from the servo so that power can flow from the arduino to the servo.
-					</p>
-					<p>
-						The final circuit should look similar to the diagram below:
-					</p>
+					<div class="6u"><span class="image fit"><img src="images/Servo_connect_power.jpg" alt="" /></span></div>
+					<p>Next, connect GND to the negative power row (blue) of the breadboard and 5V to the positive power row (red).</p>
 				</div>
+
+
+
+				<hr />
 				<div>
-					<span class="image"><img src = "images/servo_circuit.png" width="50%" /></span>
+					<h2>Step 4</h2>
+					<p>Next, connect the black wire to the negative power row of the breadboard and the red wire to the positive power row.</p>
+					<p>The final circuit should look similar to the diagram below:</p>
+					<div class="6u"><span class="image fit"><img src="images/servo_circuit.png"/></span></div>
 				</div>
 
 
@@ -121,47 +123,53 @@
 				<h1>Code</h1>
 
 				<p>
-					In this section, you will learn how to write the code for controlling the servo motor. You will be able to set an angle for the rotation of the servo motor. <br> As we did in the previous tutorial, we have put the code below so you can read it once and then will run you through it.
+					In this section, you will learn how to write the code for controlling the servo motor. You will be able to set an angle for the rotation of the servo motor. <br> As we did in the previous tutorial, we have put the code below so you can read it once
+					and then will run you through it.
 				</p>
+
+
+				<hr />
+				<h2>Turning servo</h2>
 				<pre class="language-clike line-numbers" data-src="Servo/Servo.ino"></pre>
 				<!-- <pre class="language-processing line-numbers" data-src="ProcessingRadar.pde"></pre> -->
 
-					<p>
-						At the beginning of our code, we set the global variables and initial parameters. This is where
-						we include the library for the servo. A library is a collection of pre-written code that you can reuse.
-						The "#define" allows us to give an integer value to a set of uppercase characters. This helps make
-						our code easier to read as we can now refer to pin 9 as SERVO_PIN.
-					</p>
-					<code class="language-clike" style=display:block;white-space:pre-wrap>
+				<hr />
+				<h2>Code explanation</h2>
+
+				<h3>Set the servo pin</h3>
+				<p>
+					At the beginning of our code, we set the global variables and initial parameters. This is where we include the library for the servo. A library is a collection of pre-written code that you can reuse. The <code class="language-clike">#define</code>					allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">9</code> as <code class="language-clike">SERVO_PIN</code>.
+				</p>
+
+				<h3>Move servo one way</h3>
+				<code class="language-clike" style=display:block;white-space:pre-wrap>
   for(angle = 0; angle <= 180; angle++){
-  servo.write(angle);
-  delay(15);
+  	servo.write(angle);
+  	delay(15);
   }
 					</code>
-					<p>
-						The first for loop iterates over an angle from 0 to 180, increasing with a step of 1.
-						At every value of angle, we send the angle to the servo so it rotates. The delay of 15 microseconds
-						is used to give enough time to the servo so that it can rotate.<br/>
-						The second for loop acts the same way as the first but goes from 180 to 0 degrees, resetting the servo to its
-						initial position.
-					</p>
-					<p>
-						Both these loops run indefinitely as they are in the Arduino's loop() function.
-						You now have a program that makes the servo motor sweep an angle of 180 degrees.
-						All you have left to do is upload it to your Arduino board and watch it go!
-					</p>
 
-					<h3>Exercise</h3>
-					<p>
-						As an exercise, try and change the angle and see what happens.
-					</p>
+					<p>The first for loop iterates over an angle from <code class="language-clike">0</code> to <code class="language-clike">180</code>, increasing with a step of <code class="language-clike">1</code>.</p>
+					<p>At every value of angle, we send the angle to the servo so it rotates.</p>
+					<p>The delay of <code class="language-clike">15</code> microseconds is used to give enough time to the servo so that it can rotate.</p>
 
-					<h3>Challenge</h3>
-					<p>
-						For those of you that want more of a challenge, try blinking an LED every time
-						a full cycle completes. This will require you to link 2 circuits together.
-						Hint:
-					</p>
+
+				<h3>Move servo back</h3>
+				<p>The second for loop acts the same way as the first but goes from <code class="language-clike">180</code> to <code class="language-clike">0</code> degrees, resetting the servo to its initial position. </p>
+				<p>Both these loops run indefinitely as they are in the Arduino's <code class="language-clike">loop()</code> function.</p>
+				<p>You now have a program that makes the servo motor sweep an angle of 180 degrees. All you have left to do is upload it to your Arduino board and watch it go!</p>
+
+				<hr />
+				<h2>Exercise</h2>
+				<p>
+					As an exercise, try and change the range of angles and see what happens.
+				</p>
+
+				<hr />
+				<h2>Challenge</h2>
+				<p>
+					For those of you that want more of a challenge, try blinking an LED every time a full cycle completes. This will require you to link 2 circuits together. Hint: read the previous lesson about LEDs.
+				</p>
 				<div style="text-align: right">
 					<a href="#" class="button special icon chevron-right">Next Lesson</a>
 					<a href="LED.html" class="button special icon fa-chevron-left" style="float:left">Previous Lesson</a>
