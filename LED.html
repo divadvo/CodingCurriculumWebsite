@@ -67,7 +67,7 @@
 				<div>
 					<h1>Components</h1>
 					<h2>Breadboard</h2>
-					<span class="image fit"><img src="images/breadboard.jpg" alt="" /></span>
+					<div class="6u"><span class="image fit"><img src="images/breadboard.jpg" alt="" /></span></div>
 					<p>
 						A breadboard is a tool that allows for easier and more organised connections of electric components. It is organised by rows and columns.</p>
 					<p> The two <b>blue</b> and <b>red color-coded rows</b> being the power connection rows. All holes in a row are connected.</p>
@@ -76,25 +76,18 @@
 
 				<hr />
 				<div>
-					<span class="image right"><img src="images/LED_diagram.png" alt="" /></span>
 					<h2>LED</h2>
-
-
-					<!-- <span class="image left"><img src="images/pic05.jpg" alt="" /> -->
-
+					<div class="6u"><span class="image fit"><img src="images/LED_diagram.png" alt="" /></span></div>
 					<p>LEDs are small and powerfull lights.</p>
 					<p>LEDs have two <b>legs</b>: <b>short</b> (negative side) and <b>long</b> (positive side). They have to be connected in the right direction on the breadboard.</p>
-
-					<!-- <span class="image right"><img src="images/LED_and_resistor_in_breadboard.jpg" alt="" /></span>
-					<span class="image left"><img src="images/Ground_connected.jpg" alt="" /></span>
-					<span class="image right"><img src="images/Full_curcuit.jpg" alt="" /></span> -->
 				</div>
 
 				<hr />
 				<div>
-					<span class="image fit"><img src="images/Resistor_straight.jpg" alt="" /></span>
-					<span class="image right"><img src="images/Resistor_bent.jpg" alt="" /></span>
 					<h2>Resistor</h2>
+
+					<div class="12u"><span class="image fit"><img src="images/Resistor_straight.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="images/Resistor_bent.jpg" alt="" /></span></div>
 					<p>An LED can only accept a range of voltages, and supplying it with a higher voltage than allowed will cause it to burn out. This is why we need to use a resistor that limits the current output. </p>
 					<p>Resistors need their legs bent in right angles to fit in the breadboard. One can also cut the legs shorter. </p>
 				</div>
@@ -102,15 +95,15 @@
 
 				<hr />
 				<div>
-					<span class="image"><img src="images/jumper_wires.jpg" alt="" /></span>
 					<h2>Jumper Wire</h2>
+					<div class="6u"><span class="image fit"><img src="images/jumper_wires.jpg" alt="" /></span></div>
 					<p>Jumper wires are used to connect components on the breadboard and to connect them to Arduino. </p>
 				</div>
 
 				<hr />
 				<div>
-					<span class="image right"><img src="images/UNO.jpg" alt="" /></span>
 					<h2>Arduino</h2>
+					<div class="6u"><span class="image fit"><img src="images/UNO.jpg" alt="" /></span></div>
 					<p>Arduino is a platform, which allows to control electronic components through a microcontroller. The board can be connected and programmed a USB connection on a computer.</p>
 				</div>
 
@@ -121,29 +114,29 @@
 
 				<div>
 					<h2>Step 1</h2>
+					<div class="6u"><span class="image fit"><img src="images/LED_inserted.jpg" alt="" /></span></div>
 					<p>Connect the LED to the breadboard. The two legs should be in different columns. Note where you insert the longer and shorter legs.</p>
-					<div><span class="image"><img src="images/LED_inserted.jpg" alt="" width="20%" /></span></div>
 				</div>
 
 				<hr />
 				<div>
 					<h2>Step 2</h2>
-					<div><span class="image"><img src="images/LED_and_resistor_in_breadboard.jpg" alt="" width="20%" /></span></div>
+					<div class="6u"><span class="image fit"><img src="images/LED_and_resistor_in_breadboard.jpg" alt=""/></span></div>
 					<p>Insert one leg of the resistor in the same row as the short (negative) leg of the LED.</p>
 					<p>Insert the other leg of the resistor into a free column.</p>
 				</div>
 
 				<hr />
 				<div>
-					<div><span class="image"><img src="images/Ground_connected.jpg" alt="" width="20%" /></span></div>
 					<h2>Step 3</h2>
+					<div class="6u"><span class="image fit"><img src="images/Ground_connected.jpg" alt="" /></span></div>
 					<p>Connect the ground (GND) power pin of the Arduino to the column with the only resistor leg using a jumpwire.</p>
 				</div>
 
 				<hr />
 				<div>
-					<div><span class="image"><img src="images/Full_curcuit.jpg" alt="" width="30%" /></span></div>
 					<h2>Step 4</h2>
+					<div class="6u"><span class="image fit"><img src="images/Full_curcuit.jpg" alt="" /></span></div>
 					<p>Connect the arduino’s digital <b>pin 13</b> to the same column as the LED’s positive leg (long leg).</p>
 					<p>The number of the pin we connect it to is important as we will have to set it as a power output in our program.</p>
 				</div>
@@ -151,8 +144,8 @@
 
 				<hr />
 				<div>
-					<div><span class="image"><img src="images/Connect_usb.jpg" alt="" width="30%" /></span></div>
 					<h2>Step 5</h2>
+					<div class="6u"><span class="image fit"><img src="images/Connect_usb.jpg" alt=""/></span></div>
 					<p>Connect one side of the USB cable to the Arduino and the other one to your computer.</p>
 				</div>
 
@@ -162,30 +155,88 @@
 			<section id="code" class="main">
 				<h1>Code</h1>
 
-				<p>Now, we will learn how to control the LED’s and make them blink.</p>
+				<h2>Setup the environment</h2>
+				<p>First, download and install the Arduino programming environment.</p>
+				<p>Guides:</p>
+				<ul>
+					<li><a href="https://www.arduino.cc/en/guide/windows"><b>Windows</b></a></li>
+					<li><a href="https://www.arduino.cc/en/guide/macOSX"><b>MacOS</b></a></li>
+					<li><a href="https://www.arduino.cc/en/Guide/Linux"><b>Linux</b></a></li>
+				</ul>
+
+				<p><a href="https://www.arduino.cc/en/main/software"><b>Arduino IDE Download page</b></a></p>
 
 
+				<hr />
+				<h2>Create new sketch</h2>
+				<p>To create a new program, start a new sketch in the Arduino IDE.</p>
+				<div class="6u"><span class="image fit"><img src="images/Arduino_IDE_new_sketch.png" alt=""/></span></div>
 
-				<p>Firstly, let us go through some basics of Arduino programming. When you want to write a new program, you have to start a new sketch. The first thing you will see are the two main loops that you will need for every program:</p>
 
-				<!-- <span class="image right"><img src="images/Arduino_IDE_LED_sketch.png" alt="" /></span>
-				<span class="image left"><img src="images/Arduino_IDE_new_sketch.png" alt="" /></span>
-				<span class="image right"><img src="images/Choose_correct_board.png" alt="" /></span>
-				<span class="image left"><img src="images/Choose_correct_port.png" alt="" /></span>
-				<span class="image right"><img src="images/done_uploading.png" alt="" /></span> -->
-
+				<hr />
+				<h2>Code structure</h2>
+				<p>The first thing you will see are the two main loops that you will need for every program:</p>
 				<ul>
 					<li><b>Setup function</b>: This is where all the initial parameters are set for your program. For example modes for different pins, initialising variables. The setup function runs only once when you power the arduino on or when you reset it.</li>
 					<li><b>Loop function</b>: This is where all of your main code goes. As the name states, the function will run continuously.</li>
 				</ul>
 
-				<p>The following section contains the final code for the blinking LED program. Read through it once and then carry on to the explanation for details on how it all works together.</p>
+				<hr />
+				<h2>Blinking LED</h2>
+				<p>Write the code for blinking the LED in Arduino IDE.</p>
+				<div class="6u"><span class="image fit"><img src="images/Arduino_IDE_LED_sketch.png" alt=""/></span></div>
 
-
+				<p>This is the code for a blinking LED: </p>
 				<pre class="language-clike line-numbers" data-src="LED.ino"></pre>
+
+
+				<hr />
+				<h2>Code explanation</h2>
+
+				<h3>Set the LED pin</h3>
+				<code class="language-clike">#define LED_PIN 13</code>
+				<p>We connected the LED to pin 13. We are going to use the pin number later in the code.</p>
+				<p>We don't want to change the pin number in each part of the code and want to understand what <b>13</b> means.</p>
+				<p>The compiler will replace <code class="language-clike">LED_PIN</code> with <code class="language-clike">13</code> everywhere in the code. </p>
+
+
+				<h3>Configure LED pin as output</h3>
+				<code class="language-clike">pinMode(LED_PIN, OUTPUT);</code>
+				<p>The <code class="language-clike">pinMode(pin, mode)</code> function sets a specific <code class="language-clike">pin</code> number in specific mode: <code class="language-clike">INPUT</code> or <code class="language-clike">OUTPUT</code>.</p>
+				<p>A button could use a INPUT mode and a LED could use OUTPUT mode.</p>
+
+
+				<h3>Turn LED on or off</h3>
+				<code class="language-clike">digitalWrite(LED_PIN, HIGH);</code>
+				<p>The <code class="language-clike">digitalWrite(pin, mode)</code> function sets a specific <code class="language-clike">pin</code> number to a specific voltage: <code class="language-clike">HIGH</code> (5V) or <code class="language-clike">LOW</code>					(0V).</p>
+				<ul>
+					<li><code class="language-clike">HIGH</code> will turn the LED on.</li>
+					<li><code class="language-clike">LOW</code> will turn the LED off.</li>
+				</ul>
+
+				<h3>Delay</h3>
+				<code class="language-clike">delay(1000);</code>
+				<p>The <code class="language-clike">delay(ms)</code> pauses the program for a specific amount of time in milliseconds.</p>
+				<p>Without this statement the program would jump to next line and then to next loop (almost) instantly, so we would not see the LED blink.</p>
+
+
+				<hr />
+				<h2>Check connection</h2>
+				<p>Make sure you connected the Arduino to your computer via USB.</p>
+				<p>Then choose the right Arduino board type and the correct port if they were not selected automatically.</p>
+				<div class="6u"><span class="image fit"><img src="images/Choose_correct_board.png" alt=""/></span></div>
+				<div class="6u"><span class="image fit"><img src="images/Choose_correct_port.png" alt=""/></span></div>
+
+				<hr />
+				<h2>Upload to Arduino</h2>
+				<p>Click the upload button (right arrow, second button from the left).</p>
+				<p>The program will compile and upload to Arduino. A 'Done uploading' message will appear.</p>
+				<p>If something went wrong, you will get an error message, which you can use to figure out what went wrong by using Google.</p>
+				<div class="6u"><span class="image fit"><img src="images/done_uploading.png" alt=""/></span></div>
+
 				<!-- <pre class="language-processing line-numbers" data-src="ProcessingRadar.pde"></pre> -->
 				<div style="text-align: right">
-					<a href="#" class="button special icon chevron-right">Next Lesson</a>
+					<a href="Servo.html" class="button special icon chevron-right">Next Lesson</a>
 				</div>
 			</section>
 
