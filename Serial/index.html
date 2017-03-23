@@ -33,8 +33,8 @@
 			<ul>
 				<li><a href="#intro" class="active">Introduction</a></li>
 				<li><a href="#components">Components</a></li>
-				<li><a href="#steps">Step-by-step</a></li>
-				<li><a href="#code">Code</a></li>
+				<li><a href="#arduino">Arduino</a></li>
+				<li><a href="#processing">Processing</a></li>
 				<!-- <li><a href="#cta">List of lessons</a></li> -->
 			</ul>
 		</nav>
@@ -44,132 +44,142 @@
 
 			<!-- Content -->
 			<section id="intro" class="main">
-				<span class="image main"><img src="images/Servo_top_image.jpg" alt="" /></span>
+				<span class="image main"><img src="images/Serial_top_image.png" alt="" /></span>
 
 				<h1>Introduction</h1>
 
 				<p>
-					In this tutorial, we will be showing you how to control the servo motor with the Arduino. By the end of this tutorial you will be able to set up the servo motor so that it sweeps across 180 degrees.
+					In this tutorial, we will be showing you how to send data from Arduino to a computer. The data will be received by a Processing program.
 				</p>
 
-				<hr />
-				<h2>Components you need</h2>
-				<ul>
-					<li>Arduino UNO or similar</li>
-					<li>Breadboard</li>
-					<li>Jumper Wires</li>
-					<li>Servo motor</li>
-				</ul>
 			</section>
 
-			<section id="components" class="main">
-				<div>
-					<h1>New Components</h1>
-					<h2>The servo motor</h2>
-					<span class="image fit"></span>
-					<p>
-						The servo motor is a small motor that rotates a set angle.
-					</p>
-					<p>
-						The servo motor has 3 connections as shown in the diagram below:
-					</p>
-					<div>
-						<span class="image"><img src = "images/servo_diagram.png" width="50%" /></span>
-					</div>
-					<p>
-						The yellow wire connects to the digital pin and is used by the board to set certain angles for the servo motor.</br> The black and red wires are used to power up the motor and connect to GND and to 5V respectively.
-					</p>
-				</div>
-			</section>
+			<section id="arduino" class="main">
+				<h1>Arduino Code</h1>
+				<pre class="language-clike line-numbers" data-src="Serial.ino"></pre>
 
-			<section id="steps" class="main">
-				<h1>Connecting step-by-step</h1>
+				<hr />
+				<h2>Code explanation</h2>
 
-				<div>
-					<h2>Step 1</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_yellow.jpg" alt="" /></span></div>
-					<p>Firstly, connect the yellow wire to one of the columns of the breadboard. </p>
-				</div>
+				<h3>Initialise variables</h3>
+				<code class="language-clike">
+int a = -500;
+int b = 1000;
+					</code>
+				<p>
+					We initialize two variables which we are going to send to the computer.
+				</p>
+
+				<h3>Setup data rate</h3>
+				<code class="language-clike">
+Serial.begin(9600);
+					</code>
+				<p>
+					This configures the serial port with a certain number of bits per second (baud). This has to be the same in the Arduino and later in the Processing programs.
+				</p>
+
+				<h3>Send</h3>
+				<code class="language-clike" style="display:block;white-space:pre-wrap">
+Serial.print(a);
+Serial.print(" ");
+Serial.print(b);
+Serial.println();
+					</code>
+				<p>Prints the two variables to the serial port with a space in between.</p>
+				<p><code class="language-clike">Serial.println();</code> sends a new line character, which can be used to determine where one message ends.</p>
+
+				<h3>Change variables</h3>
+				<code class="language-clike">
+a++;
+b--;
+						</code>
+				<p>
+					We could use input from sensors here instead.
+				</p>
 
 
 				<hr />
-				<div>
-					<h2>Step 2</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_to_pin.jpg" alt="" /></span></div>
-					<p>Connect another pin of the same row to pin 12 on the Arduino using a jumpwire. The number of the pin is again important as this is what we will use when configuring our program.</p>
-				</div>
+				<h2>Run the program</h2>
+				<p>Upload the code to Arduino. Then open the serial monitor. Shortcut: <code>Ctrl + Shift + M</code></p>
+				<div class="6u"><span class="image fit"><img src="images/Serial_open_monitor.png"/></span></div>
 
-				<hr />
-				<div>
-					<h2>Step 3</h2>
-					<div class="6u"><span class="image fit"><img src="images/Servo_connect_power.jpg" alt="" /></span></div>
-					<p>Next, connect GND to the negative power row (blue) of the breadboard and 5V to the positive power row (red).</p>
-				</div>
-
-
-
-				<hr />
-				<div>
-					<h2>Step 4</h2>
-					<p>Next, connect the black wire to the negative power row of the breadboard and the red wire to the positive power row.</p>
-					<p>The final circuit should look similar to the diagram below:</p>
-					<div class="6u"><span class="image fit"><img src="images/servo_circuit.png"/></span></div>
-				</div>
+				<p>After a few seconds you will see the changing values of <code>a</code> and <code>b</code>.</p>
+				<div class="6u"><span class="image fit"><img src="images/Serial_monitor.png"/></span></div>
 
 
 			</section>
 
-			<section id="code" class="main">
-				<h1>Code</h1>
+			<section id="processing" class="main">
+				<h1>Processing Code</h1>
+				<pre class="language-processing line-numbers" data-src="ProcessingSerial.pde"></pre>
 
 				<p>
 					In this section, you will learn how to write the code for controlling the servo motor. You will be able to set an angle for the rotation of the servo motor. <br> As we did in the previous tutorial, we have put the code below so you can read it once
 					and then will run you through it.
 				</p>
 
-
-				<hr />
-				<h2>Turning servo</h2>
-				<pre class="language-clike line-numbers" data-src="Servo/Servo.ino"></pre>
-				<!-- <pre class="language-processing line-numbers" data-src="ProcessingRadar.pde"></pre> -->
-
 				<hr />
 				<h2>Code explanation</h2>
 
-				<h3>Set the servo pin</h3>
-				<p>
-					At the beginning of our code, we set the global variables and initial parameters. This is where we include the library for the servo. A library is a collection of pre-written code that you can reuse. The <code class="language-clike">#define</code>					allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">9</code> as <code class="language-clike">SERVO_PIN</code>.
-				</p>
-
-				<h3>Move servo one way</h3>
-				<code class="language-clike" style=display:block;white-space:pre-wrap>
-  for(angle = 0; angle <= 180; angle++){
-  	servo.write(angle);
-  	delay(15);
-  }
+				<h3>Import serial library</h3>
+				<code class="language-processing">
+import processing.serial.*;
 					</code>
+				<p>This library provides function to send and receive data from the serial port.</p>
 
-					<p>The first for loop iterates over an angle from <code class="language-clike">0</code> to <code class="language-clike">180</code>, increasing with a step of <code class="language-clike">1</code>.</p>
-					<p>At every value of angle, we send the angle to the servo so it rotates.</p>
-					<p>The delay of <code class="language-clike">15</code> microseconds is used to give enough time to the servo so that it can rotate.</p>
+				<h3>Setup serial</h3>
+				<p><code class="language-processing">Serial serialPort;</code> Declares the serial variable.</p>
+				<p><code class="language-processing">String portName = Serial.list()[1];</code>Gets the serial port name for arduino. </p>
+				<p><code class="language-processing">Serial.list()</code> is an array containing a list of available serial ports. You can print this array with the <code class="language-processing">printArray(array)</code> function to find out which number to choose.
+					Remeber that the first array index is <code class="language-processing">0</code></p>
 
+				<code class="language-processing" style=display:block;white-space:pre-wrap>
+serialPort = new Serial(this, portName, 9600);
+serialPort.bufferUntil('\n');
+				</code>
+				<p>Initialises the serial object with <code class="language-processing">9600</code> as baud rate and the previously selected port name.</p>
+				<p>In the Arduino program we send one line at a time. Each line ends with a new line character <code class="language-processing">'\n'</code></p>
+				<p>The serial object will read the serial port until it reaches the new line character.</p>
 
-				<h3>Move servo back</h3>
-				<p>The second for loop acts the same way as the first but goes from <code class="language-clike">180</code> to <code class="language-clike">0</code> degrees, resetting the servo to its initial position. </p>
-				<p>Both these loops run indefinitely as they are in the Arduino's <code class="language-clike">loop()</code> function.</p>
-				<p>You now have a program that makes the servo motor sweep an angle of 180 degrees. All you have left to do is upload it to your Arduino board and watch it go!</p>
+				<h3>Receive data</h3>
+				<p>The <code class="language-processing">draw()</code> functions runs continously.</p>
+				<p><code class="language-processing">while (serialPort.available() > 0)</code> The program will receive strings as long as the serial port has some data available.</p>
+				<p><code class="language-processing">String receivedString = serialPort.readStringUntil('\n');</code> Stores the line in a string.</p>
+				<p>Sometimes the serial can not be read properly. To avoild crashing the program we use if <code class="language-processing">(receivedString != null)</code> to check if we received any data.</p>
+
+				<h3>Use data</h3>
+				<p>We then pass the received string to the <code class="language-processing">processSerialInput</code> function as a parameter.</p>
+				<p><code class="language-processing">float[] nums = float(split(receivedString, ' '));</code> splits the string into a array of floats using 'space' as the character between two numbers.</p>
+				<p><code class="language-processing">float a = nums[0]; float b = nums[1];</code> stores the first and second elements of the array in seperate variables.</p>
+				<p><code class="language-processing">println("a=" + a + " b=" + b);</code> prints the variables with some text on a new line.</p>
+				<p>You can use the variables in some other way. For example by drawing a diagram.</p>
+
+				<hr />
+				<h2>Run the program</h2>
+				<p>Upload the code by clicking the play button. You will see the values in the box on the bottom of the window.</p>
+				<div class="6u"><span class="image fit"><img src="images/Serial_processing_running.png"/></span></div>
 
 				<hr />
 				<h2>Exercise</h2>
 				<p>
-					As an exercise, try and change the range of angles and see what happens.
+					As an exercise, add another variable in the Arduino code. And send it to the Processing sketch. For example, use the ultrasonic distance.
 				</p>
 
 				<hr />
 				<h2>Challenge</h2>
 				<p>
-					For those of you that want more of a challenge, try blinking an LED every time a full cycle completes. This will require you to link 2 circuits together. Hint: read the previous lesson about LEDs.
+					For those of you that want more of a challenge, find out how to send data the other way (Processing to Arduino). Links:
 				</p>
+
+				<ul>
+					<li><a href="https://learn.sparkfun.com/tutorials/connecting-arduino-to-processing">Tutorial by Sparkfun</a></li>
+					<li><a href="https://www.arduino.cc/en/reference/serial">Arduino Serial Documentation</a></li>
+					<li><a href="https://processing.org/reference/libraries/serial/">Processing Serial Documentation</a></li>
+				</ul>
+
+
+
+
 				<div style="text-align: right">
 					<a href="/Radar" class="button special icon chevron-right">Next Lesson</a>
 					<a href="/Ultrasonic" class="button special icon fa-chevron-left" style="float:left">Previous Lesson</a>
