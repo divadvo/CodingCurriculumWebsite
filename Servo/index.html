@@ -144,7 +144,7 @@
 				<h3>Set the servo pin</h3>
 				<code class="language-clike">#define SERVO_PIN 12</code>
 				<p>
-					The <code class="language-clike">#define</code>	allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">12</code> as <code class="language-clike">SERVO_PIN</code>.
+					The <code class="language-clike">#define</code> allows us to give an integer value to a name. This helps make our code easier to read as we can now refer to pin <code class="language-clike">12</code> as <code class="language-clike">SERVO_PIN</code>.
 				</p>
 
 				<h3>Initialize servo</h3>
@@ -167,9 +167,9 @@
   }
 					</code>
 
-					<p>The first for loop iterates over an angle from <code class="language-clike">0</code> to <code class="language-clike">180</code>, increasing with a step of <code class="language-clike">1</code>.</p>
-					<p>At every value of angle, we send the angle to the servo so it rotates.</p>
-					<p>The delay of <code class="language-clike">15</code> microseconds is used to give enough time to the servo so that it can rotate.</p>
+				<p>The first for loop iterates over an angle from <code class="language-clike">0</code> to <code class="language-clike">180</code>, increasing with a step of <code class="language-clike">1</code>.</p>
+				<p>At every value of angle, we send the angle to the servo so it rotates.</p>
+				<p>The delay of <code class="language-clike">15</code> microseconds is used to give enough time to the servo so that it can rotate.</p>
 
 
 				<h3>Move servo back</h3>
@@ -178,16 +178,26 @@
 				<p>You now have a program that makes the servo motor sweep an angle of 180 degrees. All you have left to do is upload it to your Arduino board and watch it go!</p>
 
 				<hr />
-				<h2>Exercise</h2>
-				<p>
-					As an exercise, try and change the range of angles and see what happens.
-				</p>
+				<h2>Exercises</h2>
+
+				<h3>Exercise 1</h3>
+				<p>Change the range of angles and see what happens.</p>
+				<p><i>Hint: </i> <a href="https://www.arduino.cc/en/reference/for">Read</a> about the <code class="language-clike">for</code> loop</p>
+
+				<h3>Exercise 2</h3>
+				<p>Set angles in steps of <code class="language-clike">5</code>: <code class="language-clike">0, 5, 10, 15</code> ... up to <code class="language-clike">180</code></p>
+				<p><i>Hint:</i> Find out about the update / icrement statement in a  <code class="language-clike">for</code> loop.</p>
+
+				<h3>Exercise 3</h3>
+				<p>Add a second servo. </p>
+				<p><i>Hint: </i> The Arduino power output might not be enough to run 2 servos at once. You might need an external power supply for the servos. Find out how to build this circuit.</p>
+
+
 
 				<hr />
 				<h2>Challenge</h2>
-				<p>
-					For those of you that want more of a challenge, try blinking an LED every time a full cycle completes. This will require you to link 2 circuits together. Hint: read the previous lesson about LEDs.
-				</p>
+				<p>For those of you that want more of a challenge, try blinking an LED every time a full cycle completes. This will require you to link 2 circuits together.</p>
+				<p><i>Hint: </i> read the previous lesson about LEDs.</p>
 				<div style="text-align: right">
 					<a href="/Ultrasonic" class="button special icon chevron-right">Next Lesson</a>
 					<a href="/LED" class="button special icon fa-chevron-left" style="float:left">Previous Lesson</a>
@@ -216,7 +226,7 @@
 					<dd><a href="#">david.stepanovs.16@ucl.ac.uk</a></dd>
 				</dl>
 				<ul class="icons">
-					<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+					<!-- <li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li> -->
 				</ul>
 			</section>
 			<p class="copyright">&copy; N&amp;D. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>

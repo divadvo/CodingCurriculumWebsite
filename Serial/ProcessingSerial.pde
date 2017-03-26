@@ -19,7 +19,7 @@ void draw() {
   }
 }
 
-private void processSerialInput(String receivedString) {
+void processSerialInput(String receivedString) {
   float[] nums = float(split(receivedString, ' '));
 
   float a = nums[0];

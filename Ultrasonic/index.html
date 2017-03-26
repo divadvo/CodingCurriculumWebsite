@@ -173,15 +173,29 @@
 				<p>The library makes the distance measurement very easy. The result is saved as integer in the variable <code class="language-clike">distanceCM</code> and can be used.</p>
 
 				<hr />
-				<h2>Exercise</h2>
+				<h2>Exercises</h2>
+
+				<h3>Exercise 1</h3>
 				<p>As an exercise, also store the distance in inches in a seperate variable. <code>1 inch = 2.54 cm</code></p>
 				<p>Is there an easier way to do this (existing function)? Find out by reading the <a href="http://playground.arduino.cc/Code/NewPing">documentation for the NewPing library</a>.</p>
 
+				<h3>Exercise 2</h3>
+				<p>Change the time between measurements.</p>
+				<p><i>Is there a lower limit for the pause between measurements?</i></p>
+
+				<h3>Exercise 3</h3>
+				<p>Blink an LED if an object is within a certain range, for example between <code>11cm</code> and <code>121cm</code></p>
+
+
+
+
 				<hr />
 				<h2>Challenge</h2>
-				<p>
-					For those of you that want more of a challenge, try blinking an LED every time an object is detected (within the maximum distance).
-				</p>
+				<p>Move a servo in relationship to the ultrasonic distance measurement. You could control the servo with your hand.</p>
+				<p>For example a distance of <code>5cm</code> could mean an angle <code>0</code>. Distance <code>98cm</code> could be <code>180</code> degrees.</p>
+				<p><i>Hint: </i> <a href="https://www.arduino.cc/en/reference/map">Find out</a> about the <code class="language-clike">map</code> function.</p>
+
+
 				<div style="text-align: right">
 					<a href="/Serial" class="button special icon chevron-right">Next Lesson</a>
 					<a href="/Servo" class="button special icon fa-chevron-left" style="float:left">Previous Lesson</a>
@@ -210,7 +224,7 @@
 					<dd><a href="#">david.stepanovs.16@ucl.ac.uk</a></dd>
 				</dl>
 				<ul class="icons">
-					<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+					<!-- <li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li> -->
 				</ul>
 			</section>
 			<p class="copyright">&copy; N&amp;D. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
